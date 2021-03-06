@@ -1,0 +1,7 @@
+# Configure firewall settings for SSH server
+---
+- name: Configure ssh firewall
+  ufw:
+    rule: allow
+    port: ssh
+    proto: tcp

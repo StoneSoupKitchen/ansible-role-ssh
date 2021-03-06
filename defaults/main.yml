@@ -1,0 +1,5 @@
+---
+# State of the ssh server package. Use `present` to make sure the package is
+# installed, or use `latest` to make sure the package is always at the latest
+# version.
+ssh_server_package_state: present

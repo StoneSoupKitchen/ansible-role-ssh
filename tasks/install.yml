@@ -1,0 +1,11 @@
+# Install the ssh package.
+---
+- name: Define ssh_server_package
+  set_fact:
+    ssh_server_package: "{{ __ssh_server_package }}"
+  when: ssh_server_package is not defined
+
+- name: Install ssh server
+  apt:
+    name: "{{ ssh_server_package }}"
+    state: "{{ ssh_server_package_state }}"

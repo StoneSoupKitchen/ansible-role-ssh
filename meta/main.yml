@@ -1,0 +1,14 @@
+galaxy_info:
+  role_name: ssh
+  author: stonesoupkitchen
+  description: SSH server configuration for Linux.
+  license: BSD-3-Clause
+  min_ansible_version: 2.9
+  platforms:
+    - name: Debian
+      versions:
+        - buster
+  galaxy_tags:
+    - ssh
+    - ssh-server
+dependencies: []
