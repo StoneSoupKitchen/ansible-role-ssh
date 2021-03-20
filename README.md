@@ -1,4 +1,5 @@
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/H2H43P9OI)
+[![CI](https://github.com/StoneSoupKitchen/ansible-role-ssh/actions/workflows/ci.yml/badge.svg)](https://github.com/StoneSoupKitchen/ansible-role-ssh/actions/workflows/ci.yml)
 
 Ansible role: ssh
 =========
