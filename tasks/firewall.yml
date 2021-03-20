@@ -3,5 +3,5 @@
 - name: Configure ssh firewall
   ufw:
     rule: allow
-    port: ssh
+    port: "{{ ssh_server_port }}"
     proto: tcp

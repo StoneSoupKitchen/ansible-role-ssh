@@ -1,2 +1,6 @@
 ---
 __ssh_server_package: "openssh-server"
+
+# SSH server configuration
+#
+ssh_server_port: 22
