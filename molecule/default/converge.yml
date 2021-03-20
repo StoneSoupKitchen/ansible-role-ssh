@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include stonesoupkitchen.ssh"
+      include_role:
+        name: "stonesoupkitchen.ssh"
