@@ -2,6 +2,23 @@
 - name: Converge
   hosts: all
   tasks:
+    - name: "Set ansible_virtualization_type to docker"
+      set_fact:
+        ansible_virtualization_type: "docker"
+
+    - name: "Install ufw"
+      apt:
+        name: "ufw"
+        state: "latest"
+
+    - name: "Initialize /run/sshd for Debian container"
+      file:
+        state: directory
+        path: /run/sshd
+        owner: root
+        group: root
+        mode: '0755'
+
     - name: "Include stonesoupkitchen.ssh"
       include_role:
         name: "stonesoupkitchen.ssh"
