@@ -9,7 +9,7 @@
     - name: "Install ufw"
       apt:
         name: "ufw"
-        state: "latest"
+        state: "present"
 
     - name: "Initialize /run/sshd for Debian container"
       file:
