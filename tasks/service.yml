@@ -4,4 +4,3 @@
     name: sshd
     state: started
     enabled: yes
-
