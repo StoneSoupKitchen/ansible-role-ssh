@@ -3,6 +3,6 @@
   service:
     name: sshd
     state: started
-    enabled: yes
+    enabled: true
   when:
     - ansible_virtualization_type != "docker"
