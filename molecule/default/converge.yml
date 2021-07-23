@@ -6,8 +6,12 @@
       set_fact:
         ansible_virtualization_type: "docker"
 
-    - name: "Install ufw"
+    - name: "Sync package repositories"
       apt:
+        update_cache: true
+
+    - name: "Install ufw"
+      package:
         name: "ufw"
         state: "present"
 
