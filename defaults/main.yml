@@ -3,3 +3,61 @@
 # installed, or use `latest` to make sure the package is always at the latest
 # version.
 ssh_server_package_state: present
+
+ssh_server_allowgroups: []
+ssh_server_allowtcpforwarding: false
+ssh_server_allowusers: []
+ssh_server_banner: "/etc/issue.net"
+ssh_server_ciphers:
+  - "chacha20-poly1305@openssh.com"
+  - "aes256-gcm@openssh.com"
+  - "aes128-gcm@openssh.com"
+  - "aes256-ctr"
+  - "aes192-ctr"
+  - "aes128-ctr"
+
+ssh_server_clientalivecountmax: 0
+ssh_server_clientaliveinterval: 300
+ssh_server_denygroups: []
+ssh_server_denyusers: []
+ssh_server_hostbasedauthentication: false
+ssh_server_ignorerhosts: true
+
+ssh_server_kexalgorithms:
+  - "curve25519-sha256"
+  - "curve25519-sha256@libssh.org"
+  - "diffie-hellman-group14-sha256"
+  - "diffie-hellman-group16-sha512"
+  - "diffie-hellman-group18-sha512"
+  - "ecdh-sha2-nistp521"
+  - "ecdh-sha2-nistp384"
+  - "ecdh-sha2-nistp256"
+  - "diffie-hellman-group-exchange-sha256"
+
+ssh_server_logingracetime: 60
+
+# Logging level for SSH server.
+# Valid values are listed in the man pages for SSH config:
+# https://linux.die.net/man/5/ssh_config
+# http://manpages.ubuntu.com/manpages/trusty/en/man5/sshd_config.5.html
+ssh_server_loglevel: "verbose"
+
+ssh_server_macs:
+  - "hmac-sha2-512-etm@openssh.com"
+  - "hmac-sha2-256-etm@openssh.com"
+  - "hmac-sha2-512"
+  - "hmac-sha2-256"
+
+ssh_server_maxauthtries: 4
+ssh_server_maxsessions: 10
+ssh_server_maxstartups: "10:30:60"
+ssh_server_permitemptypasswords: false
+
+# Permit root user to login via SSH.
+# Valid values are true, false, "without-password", "prohibit-password",
+# and "forced-commands-only".
+ssh_server_permitrootlogin: false
+
+ssh_server_permituserenvironment: false
+ssh_server_usepam: true
+ssh_server_x11forwarding: false

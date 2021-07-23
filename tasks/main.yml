@@ -1,4 +1,8 @@
 ---
+- import_tasks: validate.yml
+  run_once: true
+  delegate_to: localhost
+
 - include_tasks: "variables.yml"
 - include_tasks: "install.yml"
 - include_tasks: "config.yml"

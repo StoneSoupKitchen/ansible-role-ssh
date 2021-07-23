@@ -10,3 +10,209 @@
       check_mode: true
       register: install
       failed_when: (install is changed) or (install is failed)
+
+    - name: Check permissions on sshd_config
+      file:
+        path: /etc/ssh/sshd_config
+        owner: root
+        group: root
+        mode: '0600'
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: Protocol defaults to 2"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "Protocol 2"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: LogLevel defaults to VERBOSE"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "LogLevel VERBOSE"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: X11Forwarding defaults to 'no'"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "X11Forwarding no"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: MaxAuthTries defaults to 4"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "MaxAuthTries 4"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: IgnoreRhosts defaults to 'yes'"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "IgnoreRhosts yes"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: HostbasedAuthentication defaults to 'no'"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "HostbasedAuthentication no"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: PermitRootLogin defaults to 'no'"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "PermitRootLogin no"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: PermitEmptyPasswords defaults to 'no'"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "PermitEmptyPasswords no"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: PermitUserEnvironment defaults to 'no'"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "PermitUserEnvironment no"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: Ciphers defaults to approved ciphers list"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: MACs defaults to approved MACs list"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: KexAlgorithms defaults to approved list"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group14-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: ClientAliveInterval defaults to 300"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "ClientAliveInterval 300"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: ClientAliveCountMax defaults to 0"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "ClientAliveCountMax 0"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: LoginGraceTime defaults to 60"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "LoginGraceTime 60"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: AllowUsers not present by default"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "^AllowUsers.*$"
+        state: absent
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: AllowGroups not present by default"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "^AllowGroups.*$"
+        state: absent
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: DenyUsers not present by default"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "^DenyUsers.*$"
+        state: absent
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: DenyGroups not present by default"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "^DenyGroups.*$"
+        state: absent
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: Banner defaults to /etc/issue.net"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "Banner /etc/issue.net"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: UsePAM defaults to 'yes'"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "UsePAM yes"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: AllowTcpForwarding defaults to 'no'"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "AllowTcpForwarding no"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: MaxStartups defaults to '10:30:60'"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "MaxStartups 10:30:60"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
+    - name: "SSH Config: MaxSessions defaults to 10"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "MaxSessions 10"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)

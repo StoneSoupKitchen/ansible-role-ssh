@@ -10,6 +10,8 @@
 # possible, but leave them commented.  Uncommented options override the
 # default value.
 
+Protocol 2
+
 #Port 22
 #AddressFamily any
 #ListenAddress 0.0.0.0
@@ -21,18 +23,25 @@
 
 # Ciphers and keying
 #RekeyLimit default none
+Ciphers {{ ssh_server_ciphers | join(',') }}
+MACs {{ ssh_server_macs | join(',') }}
+KexAlgorithms {{ ssh_server_kexalgorithms | join(',') }}
 
 # Logging
 #SyslogFacility AUTH
-#LogLevel INFO
+LogLevel {{ ssh_server_loglevel | upper }}
 
-# Authentication:
-
-#LoginGraceTime 2m
-#PermitRootLogin prohibit-password
+# Authentication
+LoginGraceTime {{ ssh_server_logingracetime }}
+{% if ssh_server_permitrootlogin is boolean %}
+PermitRootLogin {{ ssh_server_permitrootlogin | ternary("yes", "no") }}
+{% else %}
+PermitRootLogin {{ ssh_server_permitrootlogin }}
+{% endif %}
+# Change to yes if you don't trust ~/.ssh/known_hosts for
 #StrictModes yes
-#MaxAuthTries 6
-#MaxSessions 10
+MaxAuthTries {{ ssh_server_maxauthtries }}
+MaxSessions {{ ssh_server_maxsessions }}
 
 #PubkeyAuthentication yes
 
@@ -45,16 +54,16 @@
 #AuthorizedKeysCommandUser nobody
 
 # For this to work you will also need host keys in /etc/ssh/ssh_known_hosts
-#HostbasedAuthentication no
+HostbasedAuthentication {{ ssh_server_hostbasedauthentication | ternary("yes", "no") }}
 # Change to yes if you don't trust ~/.ssh/known_hosts for
 # HostbasedAuthentication
 #IgnoreUserKnownHosts no
 # Don't read the user's ~/.rhosts and ~/.shosts files
-#IgnoreRhosts yes
+IgnoreRhosts {{ ssh_server_ignorerhosts | ternary("yes", "no") }}
 
 # To disable tunneled clear text passwords, change to no here!
 PasswordAuthentication no
-#PermitEmptyPasswords no
+PermitEmptyPasswords {{ ssh_server_permitemptypasswords | ternary("yes", "no") }}
 
 # Change to yes to enable challenge-response passwords (beware issues with
 # some PAM modules and threads)
@@ -81,31 +90,30 @@ ChallengeResponseAuthentication no
 # If you just want the PAM account and session checks to run without
 # PAM authentication, then enable this but set PasswordAuthentication
 # and ChallengeResponseAuthentication to 'no'.
-UsePAM yes
+UsePAM {{ ssh_server_usepam | ternary("yes", "no") }}
 
 #AllowAgentForwarding yes
-#AllowTcpForwarding yes
+AllowTcpForwarding {{ ssh_server_allowtcpforwarding | ternary("yes", "no") }}
 #GatewayPorts no
-X11Forwarding yes
+X11Forwarding {{ ssh_server_x11forwarding | ternary("yes", "no") }}
 #X11DisplayOffset 10
 #X11UseLocalhost yes
 #PermitTTY yes
 PrintMotd no
 #PrintLastLog yes
 #TCPKeepAlive yes
-#PermitUserEnvironment no
+PermitUserEnvironment {{ ssh_server_permituserenvironment | ternary("yes", "no") }}
 #Compression delayed
-#ClientAliveInterval 0
-#ClientAliveCountMax 3
+ClientAliveInterval {{ ssh_server_clientaliveinterval }}
+ClientAliveCountMax {{ ssh_server_clientalivecountmax }}
 #UseDNS no
 #PidFile /var/run/sshd.pid
-#MaxStartups 10:30:100
+MaxStartups {{ ssh_server_maxstartups }}
 #PermitTunnel no
 #ChrootDirectory none
 #VersionAddendum none
 
-# no default banner path
-#Banner none
+Banner {{ ssh_server_banner }}
 
 # Allow client to pass locale environment variables
 AcceptEnv LANG LC_*
@@ -119,4 +127,17 @@ Subsystem	sftp	/usr/lib/openssh/sftp-server
 #	AllowTcpForwarding no
 #	PermitTTY no
 #	ForceCommand cvs server
-ClientAliveInterval 120
+#   ClientAliveInterval 120
+
+{% if ssh_server_denyusers %}
+DenyUsers {{ ssh_server_denyusers | join(' ') }}
+{% endif %}
+{% if ssh_server_allowusers %}
+AllowUsers {{ ssh_server_allowusers | join(' ') }}
+{% endif %}
+{% if ssh_server_denygroups %}
+DenyGroups {{ ssh_server_denygroups | join(' ') }}
+{% endif %}
+{% if ssh_server_allowgroups %}
+AllowGroups {{ ssh_server_allowgroups | join(' ') }}
+{% endif %}
