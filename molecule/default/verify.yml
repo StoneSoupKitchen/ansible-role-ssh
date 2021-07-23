@@ -10,4 +10,3 @@
       check_mode: true
       register: install
       failed_when: (install is changed) or (install is failed)
-
