@@ -1,9 +1,14 @@
 ---
+- name: Perform system validation
+  assert:
+    that: "ansible_os_family is in ['Debian']"
+    fail_msg: "Unsupported OS family: {{ ansible_os_family }}"
+    quiet: true
+
 - import_tasks: validate.yml
   run_once: true
   delegate_to: localhost
 
-- include_tasks: "variables.yml"
 - include_tasks: "install.yml"
 - include_tasks: "config.yml"
 - include_tasks: "service.yml"
