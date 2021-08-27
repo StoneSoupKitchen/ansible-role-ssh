@@ -3,6 +3,8 @@ PROJECT_ROOT := $(shell git rev-parse --show-toplevel)
 ANSIBLE_LINT = pipenv run ansible-lint
 MOLECULE = pipenv run molecule
 
+MOLECULE_DISTRO ?= debian10
+
 .DEFAULT_GOAL: help
 
 # Print a help message to the console.
@@ -35,5 +37,5 @@ lint:
 .PHONY: test
 test: clean
 	@echo "--- Running molecule tests"
-	$(MOLECULE) test
+	MOLECULE_DISTRO=$(MOLECULE_DISTRO) $(MOLECULE) test
 
