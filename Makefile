@@ -23,7 +23,7 @@ clean:
 	find . -name '*.pyc' -exec rm --force {} +
 	find . -name '*.pyo' -exec rm --force {} +
 
-# Run pylint on all python files.
+# Run ansible-lint on the role.
 #
 .PHONY: lint
 lint:
