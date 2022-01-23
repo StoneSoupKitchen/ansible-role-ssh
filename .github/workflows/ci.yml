@@ -5,11 +5,14 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions: read-all
+
+env:
+  ANSIBLE_ROLE: "stonesoupkitchen.ssh"
+
 defaults:
   run:
-    working-directory: 'stonesoupkitchen.ssh'
-
-permissions: read-all
+    working-directory: "${{ env.ANSIBLE_ROLE }}"
 
 jobs:
   analyze:
@@ -21,7 +24,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          path: 'stonesoupkitchen.ssh'
+          path: '${{ env.ANSIBLE_ROLE }}'
 
       - name: Set up Python 3
         uses: actions/setup-python@v2
@@ -53,7 +56,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          path: 'stonesoupkitchen.ssh'
+          path: '${{ env.ANSIBLE_ROLE }}'
 
       - name: Set up Python 3
         uses: actions/setup-python@v2
@@ -84,7 +87,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          path: 'stonesoupkitchen.ssh'
+          path: '${{ env.ANSIBLE_ROLE }}'
           fetch-depth: 0
 
       - name: Release
@@ -105,7 +108,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
-          path: 'stonesoupkitchen.ssh'
+          path: '${{ env.ANSIBLE_ROLE }}'
 
       - name: Set up Python 3
         uses: actions/setup-python@v2
