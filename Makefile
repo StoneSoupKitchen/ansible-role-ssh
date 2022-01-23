@@ -45,7 +45,7 @@ MOLECULE_DISTRO ?= "debian:10"
 # TASKS
 #//////////////////////////////////////////////////////////////////////////////
 
-.DEFAULT_GOAL: help
+.DEFAULT_GOAL = help
 
 .PHONY: clean
 clean: ## Delete python-generated artifacts and caches.
