@@ -5,7 +5,7 @@ verify_ssl = true
 
 [dev-packages]
 ansible = ">= 4.2.0, < 4.3.0"
-ansible-base = ">= 2.10, < 2.11"
+ansible-core = ">= 2.11, < 2.12"
 ansible-lint = "*"
 docker = "*"
 molecule = "*"
