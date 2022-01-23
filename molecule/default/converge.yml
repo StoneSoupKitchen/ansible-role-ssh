@@ -10,11 +10,6 @@
       apt:
         update_cache: true
 
-    - name: "Install ufw"
-      package:
-        name: "ufw"
-        state: "present"
-
     - name: "Initialize /run/sshd for Debian container"
       file:
         state: directory
