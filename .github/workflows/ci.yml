@@ -84,6 +84,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         with:
+          path: 'stonesoupkitchen.ssh'
           fetch-depth: 0
 
       - name: Release
