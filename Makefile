@@ -47,8 +47,8 @@ MOLECULE_DISTRO ?= "debian:10"
 
 .DEFAULT_GOAL: help
 
-.PHONY: clean ## Delete python-generated artifacts and caches.
-clean:
+.PHONY: clean
+clean: ## Delete python-generated artifacts and caches.
 	find . -name '*.pyc' -exec rm --force {} +
 	find . -name '*.pyo' -exec rm --force {} +
 
