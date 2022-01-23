@@ -9,9 +9,13 @@ defaults:
   run:
     working-directory: 'stonesoupkitchen.ssh'
 
+permissions: read-all
+
 jobs:
   analyze:
     name: Analyze
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -36,6 +40,8 @@ jobs:
   test:
     name: Test
     needs: [Analyze]
+    permissions:
+      contents: read
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -68,6 +74,8 @@ jobs:
 
   release:
     name: Release
+    permissions:
+      contents: write
     needs: [Analyze, Test]
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
@@ -87,6 +95,8 @@ jobs:
 
   publish:
     name: Publish
+    permissions:
+      contents: read
     needs: [Analyze, Test, Release]
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
