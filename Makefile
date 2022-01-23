@@ -3,7 +3,7 @@ PROJECT_ROOT := $(shell git rev-parse --show-toplevel)
 ANSIBLE_LINT = pipenv run ansible-lint
 MOLECULE = pipenv run molecule
 
-MOLECULE_DISTRO ?= debian10
+MOLECULE_DISTRO ?= "debian:10"
 
 .DEFAULT_GOAL: help
 

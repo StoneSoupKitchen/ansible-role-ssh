@@ -40,8 +40,8 @@ jobs:
     strategy:
       matrix:
         distro:
-          - debian10
-          - debian11
+          - 'debian:10'
+          - 'debian:11'
 
     steps:
       - name: Checkout
