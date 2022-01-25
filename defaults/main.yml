@@ -59,5 +59,6 @@ ssh_server_permitemptypasswords: false
 ssh_server_permitrootlogin: false
 
 ssh_server_permituserenvironment: false
+ssh_server_port: 22
 ssh_server_usepam: true
 ssh_server_x11forwarding: false
