@@ -43,6 +43,8 @@
       - ssh_server_permitrootlogin is in [true, false, "without-password", "prohibit-password", "forced-commands-only"]
       - ssh_server_permituserenvironment is defined
       - ssh_server_permituserenvironment is boolean
+      - ssh_server_port is defined
+      - ssh_server_port is integer
       - ssh_server_usepam is defined
       - ssh_server_usepam is boolean
       - ssh_server_x11forwarding is defined

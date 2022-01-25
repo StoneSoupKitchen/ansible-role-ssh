@@ -29,6 +29,14 @@
       register: config
       failed_when: (config is changed) or (config is failed)
 
+    - name: "SSH Config: Port defaults to 22"
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        line: "Port 22"
+      check_mode: true
+      register: config
+      failed_when: (config is changed) or (config is failed)
+
     - name: "SSH Config: LogLevel defaults to VERBOSE"
       lineinfile:
         path: /etc/ssh/sshd_config
