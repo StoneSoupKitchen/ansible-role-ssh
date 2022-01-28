@@ -1,36 +1,53 @@
 [![CI](https://github.com/StoneSoupKitchen/ansible-role-ssh/actions/workflows/ci.yml/badge.svg)](https://github.com/StoneSoupKitchen/ansible-role-ssh/actions/workflows/ci.yml)
 
-Ansible role: ssh
-=========
+# Ansible role: ssh
 
-A brief description of the role goes here.
+Manage SSH on Linux systems with Ansible.
 
-Requirements
-------------
+## Role Variables
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+The following table lists all variables that can be overridden
+and their default values.
 
-Role Variables
---------------
+| Name           | Default Value | Description                         |
+| -------------- | ------------- | ----------------------------------- |
+| `ssh_server_package_state` | "present" | State of the SSH server package. |
+| `ssh_server_allowgroups` | [] | |
+| `ssh_server_allowtcpforwarding` | false | |
+| `ssh_server_allowusers` | [] | |
+| `ssh_server_banner` | "/etc/issue.net" | |
+| `ssh_server_ciphers` | See defaults.yml | |
+| `ssh_server_clientalivecountmax` | 0 | |
+| `ssh_server_clientaliveinterval` | 300 | |
+| `ssh_server_denygroups` | [] | |
+| `ssh_server_denyusers` | [] | |
+| `ssh_server_hostbasedauthentication` | false | |
+| `ssh_server_ignorerhosts` | true | |
+| `ssh_server_kexalgorithms` | See defaults.yml | |
+| `ssh_server_logingracetime` | 60 | |
+| `ssh_server_loglevel` | "verbose" | |
+| `ssh_server_macs` | See defaults.yml | |
+| `ssh_server_maxauthtries` | 4 | |
+| `ssh_server_maxsessions` | 10 | |
+| `ssh_server_maxstartups` | "10:30:60" | |
+| `ssh_server_permitemptypasswords` | false | |
+| `ssh_server_permitrootlogin` | false | |
+| `ssh_server_permituserenvironment` | false | |
+| `ssh_server_port` | 22 | |
+| `ssh_server_usepam` | true | |
+| `ssh_server_x11forwarding` | false | |
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+## Examples
 
-Dependencies
-------------
+To use the role from a playbook:
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+```yaml
+- hosts: all
+  roles:
+    - stonesoupkitchen.ssh
+```
 
-Example Playbook
-----------------
+## License
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-See [LICENSE](LICENSE).
+See [LICENSE](./LICENSE).
 
