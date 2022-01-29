@@ -75,7 +75,7 @@ jobs:
   release:
     name: Release
     permissions:
-      contents: read
+      contents: write
     needs: [Analyze, Test]
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
