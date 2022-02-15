@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.1] - 2022-02-15
+
+### Miscellaneous Tasks
+
+- Fix CI permissions to enable autoreleases (486cf32)
+- Use SSK release token to perform releases (e91eb98)
+- Bump ansible-core from 2.11.7 to 2.11.8 (#24) (9185bc8)
+- Bump molecule from 3.5.2 to 3.6.1 (#29) (d2e2630)
+- Bump ossf/scorecard-action from 1.0.1 to 1.0.3 (#22) (1afab3b)
+
+### Other
+
+- Bump github/codeql-action from 1.0.29 to 1.1.0 (#27) (80fd736)
+- Bump ansible-lint from 5.3.2 to 5.4.0 (#28) (de89a57)
+
 ## [0.1.0] - 2022-01-28
 
 ### Documentation
