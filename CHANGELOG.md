@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.3] - 2022-04-29
+
+### Miscellaneous Tasks
+
+- Bump actions/upload-artifact from 2.3.1 to 3 (#36) (cdd8f1a)
+- Bump ansible-core from 2.11.9 to 2.11.10 (#39) (1d43831)
+- Bump ansible-core from 2.11.10 to 2.11.11 (#43) (09aedea)
+
 ## [0.1.2] - 2022-03-03
 
 ### Miscellaneous Tasks
