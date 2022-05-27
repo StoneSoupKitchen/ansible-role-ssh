@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.4] - 2022-05-27
+
+### Miscellaneous Tasks
+
+- Bump github/codeql-action from 1.1.3 to 2.1.11 (#46) (c6833e0)
+- Bump actions/upload-artifact from 3.0.0 to 3.1.0 (#47) (4e9bdd8)
+- Bump ansible-core from 2.11.11 to 2.11.12 (#48) (1f0ab6e)
+- Bump ossf/scorecard-action from 1.0.4 to 1.1.0 (#49) (9ffb866)
+
 ## [0.1.3] - 2022-04-29
 
 ### Miscellaneous Tasks
@@ -30,11 +39,12 @@ All notable changes to this project will be documented in this file.
 - Bump molecule from 3.5.2 to 3.6.1 (#29) (d2e2630)
 - Bump ossf/scorecard-action from 1.0.1 to 1.0.3 (#22) (1afab3b)
 
+### Other
+
+- Bump github/codeql-action from 1.0.29 to 1.1.0 (#27) (80fd736)
+- Bump ansible-lint from 5.3.2 to 5.4.0 (#28) (de89a57)
+
 ## [0.1.0] - 2022-01-28
-
-### CI
-
-- Add an automatic release workflow (c091e16)
 
 ### Documentation
 
@@ -46,8 +56,42 @@ All notable changes to this project will be documented in this file.
 
 ### Other
 
+- Initial commit (3ee1d0c)
+- Add SSK standard GitHub actions (0595791)
+- Add Molecule boilerplate (5f71d11)
+- Enable Molecule tests in CI (3470342)
+- Fix Ansible Lint warnings (d221b32)
+- Update Publish step to also depend on Test (a0afc84)
+- Use "22" instead of "ssh" when configuring firewall port (4d9e7c0)
+- Allow Molecule to run the role within a Docker container (e9ff8ad)
 - Make sure ufw support package is present (22016cc)
+- Remove "tests" director from project root (ce00889)
+- Update README.md with CI status badge (f8a7341)
+- Convert truthy value to a boolean value (d7a3ddf)
+- Introduce variables.yml to validate and set playbook vars (ddc2e43)
+- Convert sshd_config to template file (4abde77)
+- Pin the "ansible" dependency to <4.0.0 (8d78bdd)
+- Bolster automated tests (c71f572)
+- Ansible lint (c96bb0d)
+- Provide a sane set of hardened default values (8e7ee4e)
+- Remove Ko-Fi badge (2653ed2)
+- Remove variables task (d24b365)
+- Update project to make use of a Makefile (10dc2f5)
+- Amend an incorrect comment on the lint task header (3baecd6)
+- Support multiple Debian releases (d543281)
+- Add an automatic release workflow (c091e16)
+- Upgrade ansible-base to ansible-core (c3de721)
+- Switch to official base containers (b2f1576)
+- Update ansible version range (17e2c1f)
+- Enable OSSF scorecards analysis (431a866)
+- Bump github/codeql-action from 1.0.26 to 1.0.29 (6807410)
 - In Release job, change the checkout path (585092f)
+- Update Makefile with current preferred style (5284b48)
+- Fix the clean target's help text (cfd912a)
+- Fix syntax for default target (95063c9)
+- Compress role input validation (d054f06)
+- Remove firewall management tasks (6b31c99)
+- Manage the SSH port configuration setting (3a37a0f)
 
 ### Security
 
