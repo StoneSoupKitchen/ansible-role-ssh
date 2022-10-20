@@ -17,17 +17,18 @@ jobs:
     permissions:
       # Needed to upload the results to code-scanning dashboard.
       security-events: write
+      id-token: write
       actions: read
       contents: read
 
     steps:
       - name: "Checkout code"
-        uses: actions/checkout@v3 # v2.4.0
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
 
       - name: "Run analysis"
-        uses: ossf/scorecard-action@99c53751e09b9529366343771cc321ec74e9bd3d # v1.0.1
+        uses: ossf/scorecard-action@99c53751e09b9529366343771cc321ec74e9bd3d
         with:
           results_file: results.sarif
           results_format: sarif
@@ -42,7 +43,7 @@ jobs:
 
       # Upload the results as artifacts (optional).
       - name: "Upload artifact"
-        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8 # v2.3.1
+        uses: actions/upload-artifact@3cea5372237819ed00197afe530f5a7ea3e805c8
         with:
           name: SARIF file
           path: results.sarif
@@ -50,6 +51,6 @@ jobs:
 
       # Upload the results to GitHub's code scanning dashboard.
       - name: "Upload to code-scanning"
-        uses: github/codeql-action/upload-sarif@3e7e3b32d0fb8283594bb0a76cc60a00918b0969 # v1.0.26
+        uses: github/codeql-action/upload-sarif@3e7e3b32d0fb8283594bb0a76cc60a00918b0969
         with:
           sarif_file: results.sarif
