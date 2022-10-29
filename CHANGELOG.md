@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [0.1.6] - 2022-10-29
+
+### Bug Fixes
+
+- Add new required permissions for the OSSF Scorecard action (#83) (d570ae8)
+
+### Miscellaneous Tasks
+
+- Bump ossf/scorecard-action from 1.1.2 to 2.0.6 (#81) (8fd9344)
+- Bump yamllint from 1.27.1 to 1.28.0 (#72) (74029c4)
+- Bump actions/upload-artifact from 3.1.0 to 3.1.1 (#84) (b5d52ee)
+- Bump github/codeql-action from 2.1.16 to 2.1.29 (#86) (c5c2d5c)
+- Bump molecule-docker from 2.0.0 to 2.1.0 (#78) (2860ab9)
+- Bump molecule from 4.0.1 to 4.0.3 (#85) (d702bf7)
+
 ## [0.1.5] - 2022-08-27
 
 ### Miscellaneous Tasks
